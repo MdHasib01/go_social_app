@@ -41,7 +41,7 @@ func (s *PostStore) Create(ctx context.Context, post *Post) error {
 	)
 
 	if err != nil {
-		return nil
+		return err
 	}
 	return nil
 }
