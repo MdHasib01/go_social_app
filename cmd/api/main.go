@@ -6,15 +6,16 @@ import (
 	"github.com/MdHasib01/go_social_app/internal/env"
 	"github.com/MdHasib01/go_social_app/internal/store"
 )
-func main () {
+
+func main() {
 	cfg := config{
-		addr:env.GetString("ADDR", ":5080"),
+		addr: env.GetString("ADDR", ":5080"),
 	}
 	store := store.NewStorage(nil)
 
-	app:= &application{
+	app := &application{
 		config: cfg,
-		store: store,
+		store:  store,
 	}
 
 	mux := app.mount()
