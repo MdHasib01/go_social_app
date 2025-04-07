@@ -3,6 +3,7 @@ package main
 import "net/http"
 
 func (app *application) healthCheckHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("OK"))
+	w.Header().Set("Connection-Type", "application/json")
+	w.Write([]byte(`{"status":"ok"}`))
 
 }
