@@ -1,0 +1,2 @@
+CREATE DATABASE socialnetworks;
+CREATE EXTENTION IF NOT EXISTS citext;
