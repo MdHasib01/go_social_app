@@ -8,6 +8,8 @@ import (
 	"github.com/MdHasib01/go_social_app/internal/store"
 )
 
+const version = "0.0.1"
+
 func main() {
 	cfg := config{
 		addr: env.GetString("ADDR", ":4080"),

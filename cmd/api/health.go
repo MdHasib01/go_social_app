@@ -1,9 +1,20 @@
 package main
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
 func (app *application) healthCheckHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Connection-Type", "application/json")
-	w.Write([]byte(`{"status":"ok"}`))
+
+	data := map[string]string{
+		"status":  "ok",
+		"env":     app.config.env,
+		"version": version,
+	}
+	if err := writeJOSON(w, http.StatusOK, data); err != nil {
+		// error
+		log.Print(err.Error())
+	}
 
 }
