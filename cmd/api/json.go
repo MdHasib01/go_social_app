@@ -20,3 +20,11 @@ func readJSON(w http.ResponseWriter, r *http.Request, data any) error {
 	decoder.DisallowUnknownFields()
 	return decoder.Decode(data)
 }
+
+func writeJSONError(w http.ResponseWriter, status int, message string) error {
+	type envelope struct {
+		Error string `json:"error"`
+	}
+
+	return writeJOSON(w, status, &envelope{Error: message})
+}
