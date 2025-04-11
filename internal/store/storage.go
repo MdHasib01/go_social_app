@@ -12,6 +12,7 @@ var (
 
 type Storage struct {
 	Posts interface {
+		DeletePost(context.Context, int64) error
 		GetByID(context.Context, int64) (*Post, error)
 		Create(context.Context, *Post) error
 	}
