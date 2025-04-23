@@ -1,2 +1,4 @@
-ALTER TABLE posts 
-ADD COLUMN version int NOT NULL DEFAULT 0;
+ALTER TABLE
+  posts
+ADD
+  COLUMN version INT DEFAULT 0;
